@@ -1,0 +1,65 @@
+import java.util.*;
+public class StackExample
+{ 
+	    private List<Integer> stack;
+
+	    public StackExample()
+	    {
+	        stack = new ArrayList<>();
+	    }
+
+	    public void push(int item) 
+	    {
+	        stack.add(item);
+	    }
+
+	    public int pop()
+	    {
+	        if (isEmpty()) 
+	        {
+	            throw new EmptyStackException();
+	        }
+	        int lastIndex = stack.size() - 1;
+	        int item = stack.get(lastIndex);
+	        stack.remove(lastIndex);
+	        return item;
+	    }
+
+	    public int peek()
+	    {
+	        if (isEmpty())
+	        {
+	            throw new EmptyStackException();
+	        }
+	        return stack.get(stack.size() - 1);
+	    }
+
+	    public boolean isEmpty()
+	    {
+	        return stack.isEmpty();
+	    }
+
+	    public int size() 
+	    {
+	        return stack.size();
+	    }
+
+	    public static void main(String[] args)
+	    {
+	        StackExample st = new StackExample();
+
+	        st.push(5);
+	        st.push(10);
+	        st.push(15);
+
+	        System.out.println("Size of stack: " + st.size());
+	        System.out.println("Top element: " + st.peek());
+
+	        System.out.println("Popping elements from stack:");
+	        while (!st.isEmpty())
+	        {
+	            System.out.println(st.pop());
+	        }
+	    }
+	}
+
